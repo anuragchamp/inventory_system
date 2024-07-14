@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import AddStore from "../components/AddStore";
 import AuthContext from "../AuthContext";
+import axios from "axios";
 
 function Store() {
   const [showModal, setShowModal] = useState(false);
@@ -9,16 +10,19 @@ function Store() {
   const authContext = useContext(AuthContext);
 
   useEffect(() => {
+    
     fetchData();
   }, []);
 
   // Fetching all stores data
-  const fetchData = () => {
-    fetch(`http://localhost:4000/api/store/get/${authContext.user}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setAllStores(data);
-      });
+  const fetchData = async () => {
+ 
+  axios
+  .get(`http://localhost:4000/api/store/get/${authContext.user}`)
+  .then(function (response) {
+    console.log(response.data);
+    setAllStores([...response.data])
+  });
   };
 
   const modalSetting = () => {
@@ -38,7 +42,7 @@ function Store() {
           </button>
         </div>
         {showModal && <AddStore />}
-        {stores.map((element, index) => {
+        {stores?.map((element, index) => {
           return (
             <div
               className="bg-white w-50 h-fit flex flex-col gap-4 p-4 "

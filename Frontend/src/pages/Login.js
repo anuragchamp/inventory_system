@@ -83,7 +83,7 @@ function Login() {
           </div>
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
             {/* <input type="hidden" name="remember" defaultValue="true" /> */}
-            <div className="-space-y-px rounded-md shadow-sm">
+            <div className="rounded-md shadow-sm">
               <div>
                 <label htmlFor="email-address" className="sr-only">
                   Email address
@@ -100,7 +100,7 @@ function Login() {
                   onChange={handleInputChange}
                 />
               </div>
-              <div clas>
+              <div className="mt-4">
                 <label htmlFor="password" className="sr-only">
                   Password
                 </label>
@@ -134,13 +134,7 @@ function Login() {
                 </label>
               </div>
 
-              <div className="text-sm">
-                <span
-                  className="font-medium text-indigo-600 hover:text-indigo-500"
-                >
-                  Forgot your password?
-                </span>
-              </div>
+          
             </div>
 
             <div>

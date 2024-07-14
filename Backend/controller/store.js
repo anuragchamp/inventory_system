@@ -13,9 +13,11 @@ const addStore = async (req, res) => {
   });
 
   addStore.save().then((result) => {
+    console.log("store added");
       res.status(200).send(result);
     })
     .catch((err) => {
+      console.log(err);
       res.status(402).send(err);
     });
 };
@@ -23,6 +25,7 @@ const addStore = async (req, res) => {
 // Get All Stores
 const getAllStores = async (req, res) => {
   const findAllStores = await Store.find({"userID": req.params.userID}).sort({ _id: -1 }); // -1 for descending;
+  console.log("Find all store ==>",findAllStores);
   res.json(findAllStores);
 };
 
