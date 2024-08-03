@@ -33,7 +33,7 @@ export default function Header() {
                     <div className="flex-shrink-0">
                       <div className="flex justify-center items-center gap-2">
                         <img
-                          className="h-8 w-8"
+                          className="h-12 w-12 logo"
                           src={require("../assets/logo.png")}
                           alt="Inventory Management System"
                         />
@@ -60,7 +60,7 @@ export default function Header() {
                             <span className="sr-only">Open user menu</span>
                             <img
                               className="h-8 w-8 rounded-full"
-                              src={localStorageData.imageUrl}
+                              src="defaultPFP.png"
                               alt="profile"
                             />
                           </Menu.Button>

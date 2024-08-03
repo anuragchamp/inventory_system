@@ -17,3 +17,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.logo{
+  height:100px;
+  width:100px;
+}
+.logo2{
+  background-color: #282c34;
+  height:150px;
+  width:150px;
+  position: relative;
+  left: 110px;
+}

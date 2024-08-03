@@ -66,7 +66,7 @@ function Register() {
         <div className="w-full max-w-md space-y-8  p-10 rounded-lg">
           <div>
             <img
-              className="mx-auto h-12 w-auto"
+              className="logo2"
               src={require("../assets/logo.png")}
               alt="Your Company"
             />
@@ -185,7 +185,7 @@ function Register() {
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
                   Already Have an Account, Please
-                  <Link to="/login"> Signin now </Link>
+                  <Link to="/login"> Sign in now </Link>
                 </span>
               </p>
             </div>

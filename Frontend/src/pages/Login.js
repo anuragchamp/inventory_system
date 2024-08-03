@@ -67,17 +67,17 @@ function Login() {
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 h-screen  items-center place-items-center">
         <div className="flex justify-center">
-          <img src={require("../assets/signup.jpg")} alt="" />
+          <img src={require("../assets/sports-login.jpg")} alt="" />
         </div>
         <div className="w-full max-w-md space-y-8 p-10 rounded-lg">
           <div>
             <img
-              className="mx-auto h-12 w-auto"
+              className="logo2"
               src={require("../assets/logo.png")}
               alt="Your Company"
             />
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-              Signin to your account
+              Sign in to your account
             </h2>
             
           </div>
