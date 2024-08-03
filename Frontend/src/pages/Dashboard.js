@@ -5,38 +5,40 @@ import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-export const data = {
-  labels: ["Apple", "Knorr", "Shoop", "Green", "Purple", "Orange"],
-  datasets: [
-    {
-      label: "# of Votes",
-      data: [0, 1, 5, 8, 9, 15],
-      backgroundColor: [
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(54, 162, 235, 0.2)",
-        "rgba(255, 206, 86, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(153, 102, 255, 0.2)",
-        "rgba(255, 159, 64, 0.2)",
-      ],
-      borderColor: [
-        "rgba(255, 99, 132, 1)",
-        "rgba(54, 162, 235, 1)",
-        "rgba(255, 206, 86, 1)",
-        "rgba(75, 192, 192, 1)",
-        "rgba(153, 102, 255, 1)",
-        "rgba(255, 159, 64, 1)",
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
+
 
 function Dashboard() {
   const [saleAmount, setSaleAmount] = useState("");
   const [purchaseAmount, setPurchaseAmount] = useState("");
   const [stores, setStores] = useState([]);
   const [products, setProducts] = useState([]);
+
+  const [piChartData, setPiChartData] = useState({
+    labels: [],
+    datasets: [
+      {
+        label: "number of products",
+        data: [],
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(255, 206, 86, 0.2)",
+          "rgba(75, 192, 192, 0.2)",
+          "rgba(153, 102, 255, 0.2)",
+          "rgba(255, 159, 64, 0.2)",
+        ],
+        borderColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  });
 
   const [chart, setChart] = useState({
     options: {
@@ -76,12 +78,41 @@ function Dashboard() {
         {
           name: "Monthly Sales Amount",
           data: [...salesData],
+
         },
       ],
     });
   };
 
   const authContext = useContext(AuthContext);
+
+  useEffect( () => {
+    console.log(products);
+
+    if(products.length > 0)
+    { 
+      const newLabels = [];
+      const newData = [];
+      products.map((item,index) =>{
+        console.log(item.name);
+        console.log(item.stock)
+        newData.push(item.stock)
+        newLabels.push(item.name);
+
+      })
+      setPiChartData((prevState) => ({
+        ...prevState,
+        labels: newLabels,
+        datasets: [
+          {
+            ...prevState.datasets[0],
+            data: newData,
+          },
+        ],
+      }));
+    }
+    
+  },[products])
 
   useEffect(() => {
     fetchTotalSaleAmount();
@@ -285,7 +316,7 @@ function Dashboard() {
             />
           </div>
           <div>
-            <Doughnut data={data} />
+            <Doughnut data={piChartData} />
           </div>
         </div>
       </div>

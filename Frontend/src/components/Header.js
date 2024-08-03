@@ -60,7 +60,7 @@ export default function Header() {
                             <span className="sr-only">Open user menu</span>
                             <img
                               className="h-8 w-8 rounded-full"
-                              src="defaultPFP.png"
+                              src={require("../assets/defaultPFP.png")}
                               alt="profile"
                             />
                           </Menu.Button>
@@ -143,13 +143,13 @@ export default function Header() {
                     <div className="flex-shrink-0">
                       <img
                         className="h-10 w-10 rounded-full"
-                        src={localStorageData.imageUrl}
+                        src={require("../assets/defaultPFP.png")}
                         alt="profile"
                       />
                     </div>
                     <div className="ml-3">
                       <div className="text-base font-medium leading-none text-white">
-                        {localStorageData.firstName +
+                         {localStorageData.firstName +
                           " " +
                           localStorageData.lastName}
                       </div>
