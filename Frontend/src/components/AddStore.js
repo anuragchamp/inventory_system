@@ -108,7 +108,7 @@ export default function AddStore() {
                           <div>
                             <label
                               htmlFor="name"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 mt-1 text-sm font-medium text-gray-900"
                             >
                               Name
                             </label>
@@ -125,7 +125,7 @@ export default function AddStore() {
                           <div>
                             <label
                               htmlFor="city"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 mt-1 text-sm font-medium text-gray-900"
                             >
                               City
                             </label>
@@ -142,7 +142,7 @@ export default function AddStore() {
                           <div>
                             <label
                               htmlFor="category"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 text-sm font-medium text-gray-900"
                             >
                               Category
                             </label>
@@ -156,19 +156,19 @@ export default function AddStore() {
                                 })
                               }
                             >
-                              <option selected="" value="Electronics">
-                                Electronics
+                              <option selected="" value="Sports_shoes">
+                                Sports Shoes
                               </option>
-                              <option value="Groceries">Groceries</option>
-                              <option value="Wholesale">WholeSale</option>
-                              <option value="SuperMart">SuperMart</option>
-                              <option value="Phones">Phones</option>
+                              <option value="Sports_Equipment">Sports Equipment</option>
+                              <option value="Sports_Clothings">Sports Clothings</option>
+                              <option value="Sports_Accesories">Sports Accesories</option>
+                              <option value="Sports_Items">Sport Item</option>
                             </select>
                           </div>
                           <div className="sm:col-span-2">
                             <label
                               htmlFor="address"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 text-sm font-medium text-gray-900"
                             >
                               Address
                             </label>
@@ -185,6 +185,12 @@ export default function AddStore() {
                         </div>
                         <div className="flex items-center space-x-4">
                           <div>
+                          <label
+                              htmlFor="address"
+                              className="block mb-2 text-sm font-medium text-gray-900"
+                            >
+                              Add Image
+                            </label>
                             <UploadImage uploadImage={uploadImage} />
                             {/* <label
                               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"

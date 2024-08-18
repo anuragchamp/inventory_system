@@ -96,7 +96,7 @@ export default function AddSale({
                           <div>
                             <label
                               htmlFor="productID"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 text-sm font-medium text-gray-900"
                             >
                               Product Name
                             </label>
@@ -121,7 +121,7 @@ export default function AddSale({
                           <div>
                             <label
                               htmlFor="stockSold"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 text-sm font-medium text-gray-900"
                             >
                               Stock Sold
                             </label>
@@ -141,7 +141,7 @@ export default function AddSale({
                           <div>
                             <label
                               htmlFor="storeID"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 text-sm font-medium text-gray-900"
                             >
                               Store Name
                             </label>
@@ -166,7 +166,7 @@ export default function AddSale({
                           <div>
                             <label
                               htmlFor="totalSaleAmount"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 text-sm font-medium text-gray-900"
                             >
                               Total Sale Amount
                             </label>
@@ -189,7 +189,7 @@ export default function AddSale({
                               setShow={handleClose}
                             /> */}
                             <label
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 text-sm font-medium text-gray-900"
                               htmlFor="salesDate"
                             >
                               Sales Date

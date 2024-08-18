@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import AddProduct from "../components/AddProduct";
 import UpdateProduct from "../components/UpdateProduct";
 import AuthContext from "../AuthContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Inventory() {
   const [showProductModal, setShowProductModal] = useState(false);
@@ -11,6 +13,7 @@ function Inventory() {
   const [searchTerm, setSearchTerm] = useState();
   const [updatePage, setUpdatePage] = useState(true);
   const [stores, setAllStores] = useState([]);
+  
 
   const authContext = useContext(AuthContext);
   console.log('====================================');
@@ -56,6 +59,13 @@ function Inventory() {
     setShowProductModal(!showProductModal);
   };
 
+
+  const showToster = (productAdded) => {
+    if(productAdded){
+      toast("Product ADDED")
+    }
+  }
+
   // Modal for Product UPDATE
   const updateProductModalSetting = (selectedProductData) => {
     console.log("Clicked: edit");
@@ -91,19 +101,16 @@ function Inventory() {
       <div className=" flex flex-col gap-5 w-11/12">
         <div className="bg-white rounded p-3">
           <span className="font-semibold px-4">Overall Inventory</span>
-          <div className=" flex flex-col md:flex-row justify-center items-center  ">
-            <div className="flex flex-col p-10  w-full  md:w-3/12  ">
+          <div className=" flex flex-col md:flex-row justify-center items-center">
+            <div className="flex flex-col p-10  w-full  md:w-3/12">
               <span className="font-semibold text-blue-600 text-base">
                 Total Products
               </span>
               <span className="font-semibold text-gray-600 text-base">
                 {products.length}
               </span>
-              <span className="font-thin text-gray-400 text-xs">
-                Last 7 days
-              </span>
             </div>
-            <div className="flex flex-col gap-3 p-10   w-full  md:w-3/12 sm:border-y-2  md:border-x-2 md:border-y-0">
+            <div className="flex flex-col p-10  w-full  md:w-3/12">
               <span className="font-semibold text-yellow-600 text-base">
                 Stores
               </span>
@@ -111,61 +118,6 @@ function Inventory() {
                 <div className="flex flex-col">
                   <span className="font-semibold text-gray-600 text-base">
                     {stores.length}
-                  </span>
-                  <span className="font-thin text-gray-400 text-xs">
-                    Last 7 days
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-semibold text-gray-600 text-base">
-                    $2000
-                  </span>
-                  <span className="font-thin text-gray-400 text-xs">
-                    Revenue
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col gap-3 p-10  w-full  md:w-3/12  sm:border-y-2 md:border-x-2 md:border-y-0">
-              <span className="font-semibold text-purple-600 text-base">
-                Top Selling
-              </span>
-              <div className="flex gap-8">
-                <div className="flex flex-col">
-                  <span className="font-semibold text-gray-600 text-base">
-                    5
-                  </span>
-                  <span className="font-thin text-gray-400 text-xs">
-                    Last 7 days
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-semibold text-gray-600 text-base">
-                    $1500
-                  </span>
-                  <span className="font-thin text-gray-400 text-xs">Cost</span>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col gap-3 p-10  w-full  md:w-3/12  border-y-2  md:border-x-2 md:border-y-0">
-              <span className="font-semibold text-red-600 text-base">
-                Low Stocks
-              </span>
-              <div className="flex gap-8">
-                <div className="flex flex-col">
-                  <span className="font-semibold text-gray-600 text-base">
-                    12
-                  </span>
-                  <span className="font-thin text-gray-400 text-xs">
-                    Ordered
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-semibold text-gray-600 text-base">
-                    2
-                  </span>
-                  <span className="font-thin text-gray-400 text-xs">
-                    Not in Stock
                   </span>
                 </div>
               </div>
@@ -177,6 +129,8 @@ function Inventory() {
           <AddProduct
             addProductModalSetting={addProductModalSetting}
             handlePageUpdate={handlePageUpdate}
+            showToster={showToster}
+            
           />
         )}
         {showUpdateModal && (
@@ -239,7 +193,7 @@ function Inventory() {
                 </th>
               </tr>
             </thead>
-
+            <ToastContainer />
             <tbody className="divide-y divide-gray-200">
               {products.map((element, index) => {
                 return (

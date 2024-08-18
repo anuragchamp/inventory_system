@@ -3,9 +3,11 @@ import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import AuthContext from "../AuthContext";
 
+
 export default function AddProduct({
   addProductModalSetting,
   handlePageUpdate,
+  showToster,
 }) {
   const authContext = useContext(AuthContext);
   const [product, setProduct] = useState({
@@ -31,11 +33,18 @@ export default function AddProduct({
       body: JSON.stringify(product),
     })
       .then((result) => {
-        alert("Product ADDED");
+        //alert("Product ADDED");
+        
         handlePageUpdate();
+        //setProductAddedSuccess();
         addProductModalSetting();
+        showToster(true);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        showToster(false)
+        console.log(err)
+      }
+      );
   };
 
   return (
@@ -91,7 +100,7 @@ export default function AddProduct({
                           <div>
                             <label
                               htmlFor="name"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 mt-1 text-sm font-medium text-gray-900"
                             >
                               Name
                             </label>
@@ -110,7 +119,7 @@ export default function AddProduct({
                           <div>
                             <label
                               htmlFor="manufacturer"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 mt-1 text-sm font-medium text-gray-900"
                             >
                               Manufacturer
                             </label>
@@ -168,7 +177,7 @@ export default function AddProduct({
                           <div className="sm:col-span-2">
                             <label
                               htmlFor="description"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 text-sm font-medium text-gray-900"
                             >
                               Description
                             </label>
@@ -238,8 +247,10 @@ export default function AddProduct({
                     Cancel
                   </button>
                 </div>
+              
               </Dialog.Panel>
             </Transition.Child>
+           
           </div>
         </div>
       </Dialog>

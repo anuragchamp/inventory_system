@@ -29,3 +29,9 @@ code {
   position: relative;
   left: 110px;
 }
+.BarChart{
+  width:60vw;
+}
+#b{
+  height:100vh;
+}

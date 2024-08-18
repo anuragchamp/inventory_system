@@ -16,6 +16,7 @@ const addStore = async (req, res) => {
       res.status(200).send(result);
     })
     .catch((err) => {
+      console.log(err);
       res.status(402).send(err);
     });
 };

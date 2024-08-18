@@ -15,8 +15,11 @@ function Store() {
   // Fetching all stores data
   const fetchData = () => {
     fetch(`http://localhost:4000/api/store/get/${authContext.user}`)
-      .then((response) => response.json())
+      .then((response) => 
+        response.json()
+    )
       .then((data) => {
+        console.log(data);
         setAllStores(data);
       });
   };
@@ -27,7 +30,7 @@ function Store() {
 
   return (
     <div className="col-span-12 lg:col-span-10 flex justify-center ">
-      <div className=" flex flex-col gap-5 w-11/12 border-2">
+      <div className=" flex flex-col gap-5 w-11/12">
         <div className="flex justify-between">
           <span className="font-bold">Manage Store</span>
           <button
@@ -38,7 +41,8 @@ function Store() {
           </button>
         </div>
         {showModal && <AddStore />}
-        {stores.map((element, index) => {
+        
+        {stores.length > 0 && stores.map((element, index) => {
           return (
             <div
               className="bg-white w-50 h-fit flex flex-col gap-4 p-4 "

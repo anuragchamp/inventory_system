@@ -95,9 +95,9 @@ export default function AddPurchaseDetails({
                           <div>
                             <label
                               htmlFor="productID"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 text-sm font-medium text-gray-900"
                             >
-                              Product Name
+                              Product Type
                             </label>
                             <select
                               id="productID"
@@ -120,9 +120,9 @@ export default function AddPurchaseDetails({
                           <div>
                             <label
                               htmlFor="quantityPurchased"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 text-sm font-medium text-gray-900"
                             >
-                              Quantity Purchased
+                              Total Items Purchased
                             </label>
                             <input
                               type="number"
@@ -139,9 +139,9 @@ export default function AddPurchaseDetails({
                           <div>
                             <label
                               htmlFor="totalPurchaseAmount"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 text-sm font-medium text-gray-900"
                             >
-                              Total Purchase Amount
+                              Total Purchased Amount
                             </label>
                             <input
                               type="number"
@@ -162,7 +162,7 @@ export default function AddPurchaseDetails({
                               setShow={handleClose}
                             /> */}
                             <label
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 text-sm font-medium text-gray-900"
                               htmlFor="purchaseDate"
                             >
                               Purchase Date
